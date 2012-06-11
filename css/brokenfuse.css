@@ -1,3 +1,13 @@
+@-webkit-keyframes on {
+from {background-color: #555;}
+to {background-color: #FF0;}
+}
+
+@-webkit-keyframes off {
+from {background-color: #FF0;}
+to {background-color: #555;}
+}
+
 #lights {
 	background-color: #000;
 	border-radius: 4px;
@@ -7,6 +17,7 @@
 }
 
 a.light {
+	-webkit-animation: on 1s;
 	background-color: #FF0;
 	border-radius: 4px;
 	display: inline-block;
@@ -20,5 +31,6 @@ a.light:hover {
 }
 
 a.light.off {
+	-webkit-animation: off 1s;
 	background-color: #555;
 }
