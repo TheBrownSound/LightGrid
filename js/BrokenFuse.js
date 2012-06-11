@@ -57,6 +57,9 @@ var toggleLight = function(index) {
 	for (var i=0; i<lightsToToggle.length; i++) {
 		$(lightsToToggle[i]).toggleClass("off");
 	}
+	if ($("#lights a.off").length < 1) {
+		console.log("YOU WIN!!!");
+	}
 }
 
 var adjacentLights = function(index) {
