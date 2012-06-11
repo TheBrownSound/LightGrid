@@ -7,8 +7,27 @@ var BrokenFuse = {
 	lights: []
 }
 
+var setDifficulty = function(diff) {
+	switch (diff) {
+		case 'easy':
+			BrokenFuse.rows = BrokenFuse.columns = 4;
+		break;
+		case 'normal':
+			BrokenFuse.rows = BrokenFuse.columns = 6;
+		break;
+		case 'hard':
+			BrokenFuse.rows = BrokenFuse.columns = 8;
+		break;
+	}
+	BrokenFuse.lights = [];
+	buildLights();
+}
+
 var buildLights = function() {
+	var lightContainer = document.getElementById("lights");
 	var numOfLights = BrokenFuse.rows * BrokenFuse.columns;
+	lightContainer.style.width = BrokenFuse.columns*60 + "px";
+	lightContainer.innerHTML = "";//Clears any exisiting elements
 	for (var i = 0; i < numOfLights; i++) {
 		var light = document.createElement('a');
 		light.setAttribute('id', i);
@@ -20,7 +39,7 @@ var buildLights = function() {
         	}
     	}(i);
 
-    	document.getElementById("lights").appendChild(light);
+    	lightContainer.appendChild(light);
     	BrokenFuse.lights.push(light);
 	}
 }
