@@ -1,0 +1,36 @@
+@-webkit-keyframes on {
+from {background-color: #555;}
+to {background-color: #FF0;}
+}
+
+@-webkit-keyframes off {
+from {background-color: #FF0;}
+to {background-color: #555;}
+}
+
+#lights {
+	background-color: #000;
+	border-radius: 4px;
+	margin: 20px auto;
+	padding: 5px;
+	width: 280px;
+}
+
+a.light {
+	-webkit-animation: on 1s;
+	background-color: #FF0;
+	border-radius: 4px;
+	display: inline-block;
+	margin: 5px;
+	height: 50px;
+	width: 50px;
+}
+
+a.light:hover {
+	background-color: #F00;
+}
+
+a.light.off {
+	-webkit-animation: off 1s;
+	background-color: #555;
+}
