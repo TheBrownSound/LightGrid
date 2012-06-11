@@ -1,0 +1,24 @@
+#lights {
+	background-color: #000;
+	border-radius: 4px;
+	margin: 20px auto;
+	padding: 5px;
+	width: 240px;
+}
+
+a.light {
+	background-color: #FF0;
+	border-radius: 4px;
+	display: inline-block;
+	margin: 5px;
+	height: 50px;
+	width: 50px;
+}
+
+a.light:hover {
+	background-color: #F00;
+}
+
+a.light.off {
+	background-color: #555;
+}

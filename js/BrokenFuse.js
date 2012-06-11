@@ -1,0 +1,59 @@
+// BrokenFuse v1.0
+var BrokenFuse = {
+	rows: 4,
+	columns: 4,
+	lights: []
+}
+
+var buildLights = function() {
+	var numOfLights = BrokenFuse.rows * BrokenFuse.columns;
+	for (var i = 0; i < numOfLights; i++) {
+		var light = document.createElement('a');
+		light.setAttribute('id', i);
+		light.setAttribute('class', 'light');
+		
+    	light.onclick = function(num) {
+        	return function() {
+            	toggleLights(num);
+        	}
+    	}(i);
+
+    	document.getElementById("lights").appendChild(light);
+    	BrokenFuse.lights.push(light);
+	}
+}
+
+var toggleLights = function(index) {
+	var lightsToToggle = adjacentLights(index);
+	for (var i=0; i<lightsToToggle.length; i++) {
+		console.log(i);
+		console.log(hasClass(lightsToToggle[i], 'off'));
+		if (hasClass(lightsToToggle[i], 'off')) {
+			lightsToToggle[i].setAttribute('class', 'off');
+		} else {
+			lightsToToggle[i].removeAttribute('class', 'off');
+		}
+	}
+}
+
+var adjacentLights = function(index) {
+	//Will return an array of elements next to the provided element
+	var result = [];
+	var column = index%BrokenFuse.columns;
+    var row = Math.floor(index/BrokenFuse.columns);
+	for (var i=0; i<BrokenFuse.lights.length; i++) {
+		var lightRow = Math.floor(i/BrokenFuse.columns);
+		if ((i == index-1 || i == index+1) && lightRow == row) {
+			result.push(BrokenFuse.lights[i]);
+		}
+	}
+	return result;
+}
+
+function hasClass(element, cls) {
+    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+}
+
+window.onload = function () {
+	buildLights();
+}
