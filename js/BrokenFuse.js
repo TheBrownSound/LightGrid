@@ -27,6 +27,7 @@ var buildLights = function() {
 
 var toggleLights = function(index) {
 	var lightsToToggle = adjacentLights(index);
+	$(BrokenFuse.lights[index]).toggleClass("off");
 	for (var i=0; i<lightsToToggle.length; i++) {
 		$(lightsToToggle[i]).toggleClass("off");
 	}
@@ -41,13 +42,11 @@ var adjacentLights = function(index) {
 		var lightRow = Math.floor(i/BrokenFuse.columns);
 		if ((i == index-1 || i == index+1) && lightRow == row) {
 			result.push(BrokenFuse.lights[i]);
+		} else if (i == index-BrokenFuse.columns || i == index+BrokenFuse.columns) {
+			result.push(BrokenFuse.lights[i]);
 		}
 	}
 	return result;
-}
-
-function hasClass(element, cls) {
-    return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 }
 
 window.onload = function () {
