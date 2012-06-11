@@ -1,3 +1,5 @@
+//NOTE: Assumes jQuery is available
+
 // BrokenFuse v1.0
 var BrokenFuse = {
 	rows: 4,
@@ -26,13 +28,7 @@ var buildLights = function() {
 var toggleLights = function(index) {
 	var lightsToToggle = adjacentLights(index);
 	for (var i=0; i<lightsToToggle.length; i++) {
-		console.log(i);
-		console.log(hasClass(lightsToToggle[i], 'off'));
-		if (hasClass(lightsToToggle[i], 'off')) {
-			lightsToToggle[i].setAttribute('class', 'off');
-		} else {
-			lightsToToggle[i].removeAttribute('class', 'off');
-		}
+		$(lightsToToggle[i]).toggleClass("off");
 	}
 }
 
