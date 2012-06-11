@@ -1,26 +1,26 @@
 //NOTE: Assumes jQuery is available
 
 // BrokenFuse v1.0
-var BrokenFuse = {
-	rows: 4,
-	columns: 4,
-	lights: []
-}
+var BrokenFuse = {}
 
 var setDifficulty = function(diff) {
 	switch (diff) {
 		case 'easy':
 			BrokenFuse.rows = BrokenFuse.columns = 4;
+			BrokenFuse.scrambleAmount = 10;
 		break;
 		case 'normal':
 			BrokenFuse.rows = BrokenFuse.columns = 6;
+			BrokenFuse.scrambleAmount = 60;
 		break;
 		case 'hard':
 			BrokenFuse.rows = BrokenFuse.columns = 8;
+			BrokenFuse.scrambleAmount = 100;
 		break;
 	}
 	BrokenFuse.lights = [];
 	buildLights();
+	scrambleLights();
 }
 
 var buildLights = function() {
@@ -35,7 +35,7 @@ var buildLights = function() {
 		
     	light.onclick = function(num) {
         	return function() {
-            	toggleLights(num);
+            	toggleLight(num);
         	}
     	}(i);
 
@@ -44,7 +44,14 @@ var buildLights = function() {
 	}
 }
 
-var toggleLights = function(index) {
+var scrambleLights = function() {
+	for (var i=0; i<BrokenFuse.scrambleAmount; i++) {
+		var randomNum = Math.floor(Math.random()*BrokenFuse.lights.length);
+		toggleLight(randomNum);
+	}
+}
+
+var toggleLight = function(index) {
 	var lightsToToggle = adjacentLights(index);
 	$(BrokenFuse.lights[index]).toggleClass("off");
 	for (var i=0; i<lightsToToggle.length; i++) {
@@ -59,9 +66,8 @@ var adjacentLights = function(index) {
     var row = Math.floor(index/BrokenFuse.columns);
 	for (var i=0; i<BrokenFuse.lights.length; i++) {
 		var lightRow = Math.floor(i/BrokenFuse.columns);
-		if ((i == index-1 || i == index+1) && lightRow == row) {
-			result.push(BrokenFuse.lights[i]);
-		} else if (i == index-BrokenFuse.columns || i == index+BrokenFuse.columns) {
+		if (((i == index-1 || i == index+1) && lightRow == row) || /* left or right */
+			(i == index-BrokenFuse.columns || i == index+BrokenFuse.columns)) { /* above or below */
 			result.push(BrokenFuse.lights[i]);
 		}
 	}
@@ -69,5 +75,5 @@ var adjacentLights = function(index) {
 }
 
 window.onload = function () {
-	buildLights();
+	setDifficulty('easy');
 }
