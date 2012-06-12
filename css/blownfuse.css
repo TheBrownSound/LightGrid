@@ -1,16 +1,33 @@
-@-webkit-keyframes on {
-from {background-color: #555;}
-to {background-color: #FF0;}
+a {
+	cursor: pointer;
 }
 
-@-webkit-keyframes off {
-from {background-color: #FF0;}
-to {background-color: #555;}
+h1.logo {
+	float: left;
+}
+
+ul#difficulty {
+	float: right;
+}
+
+ul#difficulty li {
+	float: left;
+	list-style: none;
+	height: 30px;
+}
+
+ul#difficulty li a {
+	border: 1px solid #000;
+	display: block;
+	padding: 0px 20px;
+	line-height: 28px;
+	height: 28px;
 }
 
 #lights {
 	background-color: #000;
 	border-radius: 4px;
+	clear: both;
 	margin: 20px auto;
 	padding: 5px;
 	width: 280px;
@@ -26,11 +43,21 @@ a.light {
 	width: 50px;
 }
 
-a.light:hover {
+a.light:hover, a.light.off:hover {
 	background-color: #F00;
 }
 
 a.light.off {
 	-webkit-animation: off 1s;
 	background-color: #555;
+}
+
+@-webkit-keyframes on {
+from {background-color: #555;}
+to {background-color: #FF0;}
+}
+
+@-webkit-keyframes off {
+from {background-color: #FF0;}
+to {background-color: #555;}
 }
