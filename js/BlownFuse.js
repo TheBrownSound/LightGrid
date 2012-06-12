@@ -25,6 +25,7 @@ var setDifficulty = function(diff) {
 	updateTime();
 	buildLights();
 	scrambleLights();
+	BlownFuse.interval = window.setInterval(timer, 1000);
 }
 
 var buildLights = function() {
@@ -62,7 +63,7 @@ var toggleLight = function(index) {
 		$(lightsToToggle[i]).toggleClass("off");
 	}
 	if ($("#lights a.off").length < 1) {
-		console.log("YOU WIN!!!");
+		winCondition();
 	}
 }
 
@@ -101,7 +102,11 @@ var updateTime = function() {
 	$("#timer span.time").html( m + ":" + s );
 }
 
+var winCondition = function() {
+	console.log("YOU WIN!!!");
+	window.clearInterval(BlownFuse.interval);
+}
+
 window.onload = function () {
 	setDifficulty('easy');
-	window.setInterval(timer, 1000);
 }
