@@ -1,7 +1,9 @@
 //NOTE: Assumes jQuery is available
 
 // BlownFuse v1.0
-var BlownFuse = {}
+var BlownFuse = {
+	timeElapsed: 0
+}
 
 var setDifficulty = function(diff) {
 	switch (diff) {
@@ -19,6 +21,8 @@ var setDifficulty = function(diff) {
 		break;
 	}
 	BlownFuse.lights = [];
+	BlownFuse.elaspedTime = 0;
+	updateTime();
 	buildLights();
 	scrambleLights();
 }
@@ -77,6 +81,27 @@ var adjacentLights = function(index) {
 	return result;
 }
 
+var timer = function() {
+	BlownFuse.elaspedTime += 1000;
+	updateTime();
+}
+
+var updateTime = function() {
+	var seconds = BlownFuse.elaspedTime / 1000;
+	var m = Math.floor(seconds/60);
+	var s = Math.round(seconds - (m * 60));
+
+	// Add leading zeros to one-digit numbers.
+	if (m < 10) {
+	  m = "0" + m;
+	}
+	if (s < 10) {
+	  s = "0" + s;
+	}
+	$("#timer span.time").html( m + ":" + s );
+}
+
 window.onload = function () {
 	setDifficulty('easy');
+	window.setInterval(timer, 1000);
 }
