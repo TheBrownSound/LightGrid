@@ -25,7 +25,7 @@ var setDifficulty = function(diff) {
 	updateTime();
 	buildLights();
 	scrambleLights();
-	BlownFuse.interval = window.setInterval(timer, 1000);
+	startTimer();
 }
 
 var buildLights = function() {
@@ -100,6 +100,13 @@ var updateTime = function() {
 	  s = "0" + s;
 	}
 	$("#timer span.time").html( m + ":" + s );
+}
+
+var startTimer = function() {
+	if (BlownFuse.interval) {
+		window.clearInterval(BlownFuse.interval);
+	}
+	BlownFuse.interval = window.setInterval(timer, 1000);
 }
 
 var winCondition = function() {
