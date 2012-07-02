@@ -2,26 +2,28 @@
 <html lang="en">  
 <head>  
   <meta charset="utf-8">  
-  <title>Blown Fuse</title>
-  <meta name="description" content="Blown Fuse">
+  <title>Light Grid</title>
+  <meta name="description" content="Light Grid">
   <meta name="author" content="Jarad Comingdeer">
-  <link rel="stylesheet" href="css/blownfuse.css" type="text/css" />
+  <link rel="stylesheet" href="css/lightgrid.css" type="text/css" />
   <script src="lib/PokkiBrowser.js"></script>
   <script src="js/jquery-1.7.2.min.js"></script>
-  <script src="js/BlownFuse.js"></script>
+  <script src="js/LightGrid.js"></script>
 </head>  
-<body> 
-	<h1 class="logo">Blown Fuse</h1>
-	<ul id="difficulty">
-		<li><a onclick="BlownFuse.setMode('easy')">Easy</a></li>
-		<li><a onclick="BlownFuse.setMode('normal')">Normal</a></li>
-		<li><a onclick="BlownFuse.setMode('hard')">Hard</a></li>
-	</ul>
-	<div id="lights">
-
-	</div>
-	<div id="timer">
-		<span class="time">00:00</span>
+<body>
+	<div id="wrapper">
+		<img class="logo" src="images/logo.png" />
+		<ul id="difficulty">
+			<li><a onclick="LightGrid.setMode('easy')">Easy</a></li>
+			<li><a onclick="LightGrid.setMode('normal')">Normal</a></li>
+			<li><a onclick="LightGrid.setMode('hard')">Hard</a></li>
+		</ul>
+		<div id="lights">
+	
+		</div>
+		<div id="timer">
+			<span class="time">00:00</span>
+		</div>
 	</div>
 </body>  
 </html>  
