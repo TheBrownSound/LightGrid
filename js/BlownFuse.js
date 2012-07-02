@@ -1,9 +1,9 @@
-//NOTE: Assumes jQuery is available
+// NOTE: Assumes jQuery is available
 
 // BlownFuse v1.0
 var BlownFuse = (function(){
 	
-	//Private Variables
+	// Private Variables
 	var lights = [];
 	var timer;
 	var elaspedTime = 0;
@@ -11,7 +11,7 @@ var BlownFuse = (function(){
 	var columns = 4;
 	var scrambleAmount = 10;
 
-	//Private Methods
+	// Private Methods
 	function buildLights() {
 		var lightContainer = document.getElementById("lights");
 		var numOfLights = rows * columns;
@@ -52,7 +52,7 @@ var BlownFuse = (function(){
 	}
 
 	function adjacentLights(index) {
-		//Will return an array of elements next to the provided element
+		// Will return an array of elements next to the provided element
 		var result = [];
 		var column = index % columns;
     	var row = Math.floor( index / columns );
