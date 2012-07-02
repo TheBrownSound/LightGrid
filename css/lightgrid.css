@@ -1,11 +1,18 @@
 html, body {
 	margin: 0px;
 	padding: 0px;
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	background: #0b4140 url("../images/background_repeat.png") top left repeat;
 }
 
 body {
-	background: url("../images/background_repeat.png") top left repeat;
+	background: url("../images/background.png") top left no-repeat;
 	min-width: 600px;
+	font-family: 'Chelsea Market', cursive;
 }
 
 a {
@@ -17,46 +24,66 @@ a {
 	padding-left: 10px;
 }
 
-#wrapper {
-	background: url("../images/background.png") top left no-repeat;
-	min-height: 800px;
+.button {
+	background: #e7ebb4;
 }
 
 ul#difficulty {
+	margin: 20px 20px 0px 0px;
+	padding: 0px;
+	width: 140rpx;
 	float: right;
+	-webkit-box-shadow: 0px 0px 300px 100px rgba(51, 142, 139, .5);
 }
 
 ul#difficulty li {
-	float: left;
+	margin: 0px;
+	padding: 0px;
 	list-style: none;
-	height: 30px;
+	display: block;
 }
 
 ul#difficulty li a {
-	border: 1px solid #000;
+	font-size: 120%;
+	margin: 0px;
+	border: 2px solid #000;
 	display: block;
-	padding: 0px 20px;
-	line-height: 28px;
-	height: 28px;
+	padding: 6px 20px;
+	text-align: center;
+}
+
+ul#difficulty li:first-child a {
+	border-bottom: 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	
+}
+
+ul#difficulty li:last-child a {
+	border-top: 0px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
 }
 
 #lights {
-	background-color: #000;
-	border-radius: 4px;
+	background-color: #666;
+	border: 2px solid #000;
 	clear: both;
 	margin: 20px auto;
 	padding: 5px;
 	width: 280px;
+	-webkit-box-shadow: 0px 0px 300px 100px rgba(51, 142, 139, .5);
 }
 
 a.light {
 	-webkit-animation: on 1s;
-	background-color: #FF0;
+	background-color: #e7ebb4;
+	border: 1px solid #000;
 	border-radius: 4px;
 	display: inline-block;
 	margin: 5px;
-	height: 50px;
-	width: 50px;
+	height: 48px;
+	width: 48px;
 }
 
 a.light:hover, a.light.off:hover {
@@ -70,10 +97,30 @@ a.light.off {
 
 @-webkit-keyframes on {
 from {background-color: #555;}
-to {background-color: #FF0;}
+to {background-color: #e7ebb4;}
 }
 
 @-webkit-keyframes off {
-from {background-color: #FF0;}
+from {background-color: #e7ebb4;}
 to {background-color: #555;}
 }
+
+#timer {
+	border-radius: 10px;
+	background-color: rgba(0,0,0,.4);
+	background-image: url("../images/time_icon.png");
+	background-position: 10px 50%;
+	background-repeat: no-repeat;
+	height: 80px;
+	margin:	50px auto;
+	width: 250px;
+}
+
+#timer .time {
+	color: #e7ebb4;
+	font-size: 56px;
+	margin-left: 90px;
+	line-height: 80px;
+	width: 220px;
+}
+
