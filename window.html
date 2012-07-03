@@ -22,9 +22,13 @@
 			<li><a class="button hard" onclick="LightGrid.setMode('hard')">Hard</a></li>
 		</ul>
 		<div id="lights">
-	
+			<a onclick="LightGrid.reset();" class="restart">Play Again?</a>
 		</div>
 		<div id="timer">
+			<span class="time">00:00</span>
+		</div>
+		<div id="prompt" class="hidden">
+			<span class="message">Good job, all the lights are on!</span>
 			<span class="time">00:00</span>
 		</div>
 	</div>

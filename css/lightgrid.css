@@ -19,6 +19,10 @@ a {
 	cursor: pointer;
 }
 
+.hidden {
+	display: none;
+}
+
 .logo {
 	float: left;
 	padding-left: 10px;
@@ -77,11 +81,41 @@ ul#difficulty li:last-child a {
 	clear: both;
 	margin: 20px auto;
 	padding: 5px;
+	position: relative;
 	width: 280px;
 	-webkit-box-shadow: 0px 0px 300px 100px rgba(51, 142, 139, .5);
 }
 
-a.light {
+#lights a.restart {
+	display: none;
+	background-image: url("../images/light_toggle.png");
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+	color: #2a9c9b;
+	border-radius: 10px;
+	background-color: rgba(0,0,0,.7);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	line-height: 50px;
+	margin-top: -25px;
+	margin-left: -120px;
+	padding-left: 40px;
+	height: 50px;
+	text-align: center;
+	width: 200px;
+}
+
+#lights.complete {
+	-webkit-box-shadow: 0px 0px 300px 100px rgba(51, 142, 139, 1);
+}
+
+#lights.complete a.restart{
+	-webkit-animation: show 1s;
+	display: inline-block;
+}
+
+#lights a.light {
 	-webkit-animation: on 1s;
 	background-color: #e7ebb4;
 	border: 2px solid #000;
@@ -93,16 +127,40 @@ a.light {
 	-webkit-box-shadow: 0px 0px 20px 2px rgba(231, 235, 180, .8);
 }
 
-a.light:hover, a.light.off:hover {
+#lights a.light:hover, a.light.off:hover {
 	background-image: url("../images/light_toggle.png");
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 }
 
-a.light.off {
+#lights a.light.off {
 	-webkit-animation: off 1s;
 	background-color: #333;
 	-webkit-box-shadow: none;
+}
+
+#lights.complete a.light:hover {
+	background-image: none;
+	cursor: default;
+}
+
+#timer {
+	border-radius: 10px;
+	background-color: rgba(0,0,0,.4);
+	background-image: url("../images/time_icon.png");
+	background-position: 10px 50%;
+	background-repeat: no-repeat;
+	height: 80px;
+	margin:	50px auto;
+	width: 250px;
+}
+
+#timer .time {
+	color: #e7ebb4;
+	font-size: 56px;
+	margin-left: 90px;
+	line-height: 80px;
+	width: 220px;
 }
 
 @-webkit-keyframes on {
@@ -127,22 +185,8 @@ to {
 	}
 }
 
-#timer {
-	border-radius: 10px;
-	background-color: rgba(0,0,0,.4);
-	background-image: url("../images/time_icon.png");
-	background-position: 10px 50%;
-	background-repeat: no-repeat;
-	height: 80px;
-	margin:	50px auto;
-	width: 250px;
-}
-
-#timer .time {
-	color: #e7ebb4;
-	font-size: 56px;
-	margin-left: 90px;
-	line-height: 80px;
-	width: 220px;
+@-webkit-keyframes show {
+from {opacity: 0;}
+to   {opacity: 1;}
 }
 

@@ -9,24 +9,26 @@ var LightGrid = (function(){
 	var elaspedTime = 0;
 	var rows = 4;
 	var columns = 4;
+	var difficulty = "easy";
 	var scrambleAmount = 10;
 
 	// Private Methods
 	function buildLights() {
+		$("#lights").removeClass("complete");
 		var lightContainer = document.getElementById("lights");
+		$('.light').remove();
 		var numOfLights = rows * columns;
 		lightContainer.style.width = columns*60 + "px";
-		lightContainer.innerHTML = "";//Clears any exisiting elements
 		for (var i = 0; i < numOfLights; i++) {
 			var light = document.createElement('a');
 			light.setAttribute('id', i);
 			light.setAttribute('class', 'light');
 			
-    		light.onclick = function(num) {
+    		$(light).bind("click" ,function(num) {
     	    	return function() {
     	        	toggleLight(num);
     	    	}
-    		}(i);
+    		}(i));
 	
     		lightContainer.appendChild(light);
     		lights.push(light);
@@ -96,8 +98,14 @@ var LightGrid = (function(){
 	}
 
 	function winCondition() {
-		console.log("YOU WIN!!!");
+		$("#lights").addClass("complete");
+
+		$('#lights .light').each(function(index) {
+    		$(this).unbind("click");
+		});
+
 		window.clearInterval(timer);
+		console.log("winCondition", "Complete!")
 	}
 
 	// Public
@@ -107,7 +115,8 @@ var LightGrid = (function(){
 
 		// Methods
 		setMode: function(diff) {
-			switch (diff) {
+			difficulty = diff;
+			switch (difficulty) {
 				case 'easy':
 					rows = columns = 4;
 					scrambleAmount = 10;
@@ -127,6 +136,10 @@ var LightGrid = (function(){
 			buildLights();
 			scrambleLights();
 			startTimer();
+		},
+
+		reset: function() {
+			LightGrid.setMode(difficulty);
 		}
 	}
 
