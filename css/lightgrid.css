@@ -89,7 +89,9 @@ a.light {
 }
 
 a.light:hover, a.light.off:hover {
-	background-color: #F00;
+	background-image: url("../images/light_toggle.png");
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
 }
 
 a.light.off {
