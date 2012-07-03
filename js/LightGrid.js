@@ -121,6 +121,8 @@ var LightGrid = (function(){
 					scrambleAmount = 100;
 				break;
 			}
+			$(".button.selected").removeClass("selected");
+			$(".button."+diff).addClass("selected");
 			lights = [];
 			buildLights();
 			scrambleLights();

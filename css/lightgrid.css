@@ -52,6 +52,11 @@ ul#difficulty li a {
 	text-align: center;
 }
 
+ul#difficulty li a:hover, ul#difficulty li a.selected {
+	background-color: #2a9c9b;
+	color: #e7ebb4;
+}
+
 ul#difficulty li:first-child a {
 	border-bottom: 0px;
 	border-top-left-radius: 4px;
