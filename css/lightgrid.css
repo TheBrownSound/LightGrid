@@ -85,6 +85,7 @@ a {
 }
 
 #lights a.light {
+	background-image: url("../images/bulb_button.png");
 	-webkit-animation: on 1s;
 	background-color: #e7ebb4;
 	border: 2px solid #000;

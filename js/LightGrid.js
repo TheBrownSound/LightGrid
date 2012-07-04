@@ -122,11 +122,11 @@ var LightGrid = (function(){
 					scrambleAmount = 10;
 				break;
 				case 'normal':
-					rows = columns = 6;
+					rows = columns = 5;
 					scrambleAmount = 60;
 				break;
 				case 'hard':
-					rows = columns = 8;
+					rows = columns = 6;
 					scrambleAmount = 100;
 				break;
 			}
