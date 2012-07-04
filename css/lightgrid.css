@@ -24,54 +24,23 @@ a {
 }
 
 .logo {
-	float: left;
-	padding-left: 10px;
+	margin: 0px auto;
+	padding-right: 20px;
+	z-index: 2;
+	position: relative;
 }
 
 .button {
 	background: #e7ebb4;
 }
 
-ul#difficulty {
-	margin: 20px 20px 0px 0px;
-	padding: 0px;
-	width: 140rpx;
-	float: right;
-	-webkit-box-shadow: 0px 0px 300px 100px rgba(51, 142, 139, .5);
+#wrapper {
+	background: url("../images/bulbs.png") top center repeat-x;
 }
 
-ul#difficulty li {
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-	display: block;
-}
-
-ul#difficulty li a {
-	font-size: 120%;
-	margin: 0px;
-	border: 2px solid #000;
-	display: block;
-	padding: 6px 20px;
+#header {
+	height: 120px;
 	text-align: center;
-}
-
-ul#difficulty li a:hover, ul#difficulty li a.selected {
-	background-color: #2a9c9b;
-	color: #e7ebb4;
-}
-
-ul#difficulty li:first-child a {
-	border-bottom: 0px;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-	
-}
-
-ul#difficulty li:last-child a {
-	border-top: 0px;
-	border-bottom-left-radius: 4px;
-	border-bottom-right-radius: 4px;
 }
 
 #lights {
@@ -79,7 +48,7 @@ ul#difficulty li:last-child a {
 	border-radius: 10px;
 	border: 2px solid #000;
 	clear: both;
-	margin: 20px auto;
+	margin: 0px auto;
 	padding: 5px;
 	position: relative;
 	width: 280px;
@@ -144,20 +113,65 @@ ul#difficulty li:last-child a {
 	cursor: default;
 }
 
-#timer {
-	border-radius: 10px;
-	background-color: rgba(0,0,0,.4);
-	background-image: url("../images/time_icon.png");
-	background-position: 10px 50%;
-	background-repeat: no-repeat;
+#footer {
+	background-color: rgba(0,0,0,.6);
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+}
+
+ul#difficulty {
+	display: inline-block;
+	margin: 20px 20px 0px 0px;
+	padding: 0px 0px 0px 20px;
+}
+
+ul#difficulty li {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	display: block;
+	float: left;
+}
+
+ul#difficulty li a {
+	font-size: 120%;
+	margin: 0px;
+	border: 2px solid #000;
+	display: block;
+	padding: 6px 20px;
+	text-align: center;
+}
+
+ul#difficulty li a:hover, ul#difficulty li a.selected {
+	background-color: #2a9c9b;
+	color: #e7ebb4;
+}
+
+ul#difficulty li:first-child a {
+	border-right: 0px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	
+}
+
+ul#difficulty li:last-child a {
+	border-left: 0px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+#footer #timer {
 	height: 80px;
-	margin:	50px auto;
+	text-align: right;
 	width: 250px;
+	float: right;
+	margin-right: 20px;
 }
 
 #timer .time {
 	color: #e7ebb4;
-	font-size: 56px;
+	font-size: 42px;
 	margin-left: 90px;
 	line-height: 80px;
 	width: 220px;

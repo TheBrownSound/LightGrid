@@ -16,7 +16,7 @@ var LightGrid = (function(){
 	function buildLights() {
 		$("#lights").removeClass("complete");
 		var lightContainer = document.getElementById("lights");
-		$('.light').remove();
+		$('.light').remove( );
 		var numOfLights = rows * columns;
 		lightContainer.style.width = columns*60 + "px";
 		for (var i = 0; i < numOfLights; i++) {

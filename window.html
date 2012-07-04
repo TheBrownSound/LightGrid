@@ -15,17 +15,22 @@
 </head>  
 <body>
 	<div id="wrapper">
-		<img class="logo" src="images/logo.png" />
-		<ul id="difficulty">
-			<li><a class="button easy" onclick="LightGrid.setMode('easy')">Easy</a></li>
-			<li><a class="button normal" onclick="LightGrid.setMode('normal')">Normal</a></li>
-			<li><a class="button hard" onclick="LightGrid.setMode('hard')">Hard</a></li>
-		</ul>
+		<div id="header">
+			<img class="logo" src="images/logo.png" />
+		</div>
+		
 		<div id="lights">
 			<a onclick="LightGrid.reset();" class="restart">Play Again?</a>
 		</div>
-		<div id="timer">
-			<span class="time">00:00</span>
+		<div id="footer">
+			<ul id="difficulty">
+				<li><a class="button easy" onclick="LightGrid.setMode('easy')">Easy</a></li>
+				<li><a class="button normal" onclick="LightGrid.setMode('normal')">Normal</a></li>
+				<li><a class="button hard" onclick="LightGrid.setMode('hard')">Hard</a></li>
+			</ul>
+			<div id="timer">
+				<span class="time">00:00</span>
+			</div>
 		</div>
 		<div id="prompt" class="hidden">
 			<span class="message">Good job, all the lights are on!</span>
