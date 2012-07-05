@@ -150,6 +150,7 @@ var LightGrid = (function(){
 
 		// Methods
 		setMode: function(diff) {
+			$("#wrapper").removeClass(difficulty);
 			difficulty = diff;
 			switch (diff) {
 				case 'easy':
@@ -167,6 +168,7 @@ var LightGrid = (function(){
 			}
 			$(".button.selected").removeClass("selected");
 			$(".button."+diff).addClass("selected");
+			$("#wrapper").addClass(difficulty);
 			lights = [];
 			buildLights();
 			scrambleLights();

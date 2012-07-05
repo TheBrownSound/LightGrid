@@ -115,6 +115,20 @@ a {
 	cursor: default;
 }
 
+#wrapper #tutorial {
+	display: none;
+	margin: 20px 50px;
+	text-align: center;
+}
+
+#wrapper.easy #tutorial {
+	display: block;
+}
+
+#tutorial b {
+	display: block;
+}
+
 #footer {
 	background-color: rgba(0,0,0,.6);
 	width: 100%;
