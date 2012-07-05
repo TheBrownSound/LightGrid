@@ -16,7 +16,9 @@
 <body>
 	<script>
 		window.pokkiGamesAsyncInit = function() {
-			pokki.games.init();
+			pokki.games.init({
+				order: 'ASC'
+			});
 		};
 	
 		// Load the Library Asynchronously
@@ -54,10 +56,6 @@
 				<span class="time">00:00</span>
 				<span class="best-time">Try to solve it as fast as you can!</span>
 			</div>
-		</div>
-		<div id="prompt" class="hidden">
-			<span class="message">Good job, all the lights are on!</span>
-			<span class="time">00:00</span>
 		</div>
 	</div>
 </body>  
