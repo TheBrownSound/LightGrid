@@ -43,6 +43,9 @@ var LightGrid = (function(){
 			var randomNum = Math.floor(Math.random()*lights.length);
 			toggleLight(randomNum);
 		}
+		if ($("#lights a.off").length < 1) {
+			scrambleLights();
+		}
 	}
 
 	function toggleLight(index) {

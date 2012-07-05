@@ -36,7 +36,6 @@ a {
 
 #wrapper {
 	background: url("../images/bulbs.png") top center repeat-x;
-	padding-bottom: 80px;
 }
 
 #header {
@@ -151,7 +150,6 @@ ul#difficulty li {
 }
 
 ul#difficulty li a {
-	font-size: 120%;
 	margin: 0px;
 	border: 2px solid #000;
 	display: block;
