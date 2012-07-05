@@ -137,7 +137,7 @@ var LightGrid = (function(){
 
 	function saveScore() {
 		if (window.localStorage[difficulty]) {
-			if (window.localStorage[difficulty] > elapsedTime) {
+			if (window.localStorage[difficulty] > elaspedTime) {
 				window.localStorage.setItem(difficulty, elaspedTime);
 			}
 		} else {
