@@ -109,7 +109,7 @@ var LightGrid = (function(){
 		var msg = "";
 		if (window.localStorage.length > 0) {
 			if (window.localStorage[difficulty]) {
-				msg = "Best time for "+ difficulty +" is "+ prettyTime(window.localStorage[difficulty]);
+				msg = "Your best time for "+ difficulty +" is "+ prettyTime(window.localStorage[difficulty]);
 			} else {
 				msg = "You haven't beat the "+ difficulty +" grid yet!";
 			}
