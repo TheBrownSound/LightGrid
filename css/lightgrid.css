@@ -36,6 +36,7 @@ a {
 
 #wrapper {
 	background: url("../images/bulbs.png") top center repeat-x;
+	padding-bottom: 80px;
 }
 
 #header {
@@ -163,18 +164,26 @@ ul#difficulty li:last-child a {
 }
 
 #footer #timer {
-	height: 80px;
+	height: 60px;
 	text-align: right;
-	width: 250px;
 	float: right;
-	margin-right: 20px;
+	margin: 10px 20px 10px 10px;
 }
 
-#timer .time {
+#footer #timer span {
+	display: block;
+}
+
+#footer #timer .time {
+	color: #2a9c9b;
+	font-size: 40px;
+	line-height: 40px;
+}
+
+#footer #timer .best-time {
 	color: #e7ebb4;
-	font-size: 42px;
-	margin-left: 90px;
-	line-height: 80px;
+	font-size: 12px;
+	line-height: 20px;
 }
 
 @-webkit-keyframes on {

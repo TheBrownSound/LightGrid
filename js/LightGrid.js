@@ -3,13 +3,17 @@
 // LightGrid v1.0
 var LightGrid = (function(){
 	
+	//Public Variables
+	var difficulties = ["easy","normal","hard"];
+	var difficulty = difficulties[0];
+
 	// Private Variables
 	var lights = [];
 	var timer;
 	var elaspedTime = 0;
 	var rows = 4;
 	var columns = 4;
-	var difficulty = "easy";
+	
 	var scrambleAmount = 10;
 
 	// Private Methods
@@ -26,7 +30,7 @@ var LightGrid = (function(){
 			
     		$(light).bind("click" ,function(num) {
     	    	return function() {
-    	        	toggleLight(num);
+    	        	clickLight(num);
     	    	}
     		}(i));
 	
@@ -48,6 +52,10 @@ var LightGrid = (function(){
 		for (var i=0; i<lightsToToggle.length; i++) {
 			$(lightsToToggle[i]).toggleClass("off");
 		}
+	}
+
+	function clickLight(index) {
+		toggleLight(index);
 		if ($("#lights a.off").length < 1) {
 			winCondition();
 		}
@@ -70,7 +78,7 @@ var LightGrid = (function(){
 
 	function startTimer() {
 		elaspedTime = 0;
-		displayElapsedTime();
+		$("#timer span.time").html( getElapsedTime() );
 		if (timer) {
 			window.clearInterval(timer);
 		}
@@ -79,10 +87,10 @@ var LightGrid = (function(){
 
 	function addSecondToElapsedTime() {
 		elaspedTime += 1000;
-		displayElapsedTime();
+		$("#timer span.time").html( getElapsedTime() );
 	}
 
-	function displayElapsedTime() {
+	function getElapsedTime() {
 		var seconds = elaspedTime / 1000;
 		var m = Math.floor(seconds/60);
 		var s = Math.round(seconds - (m * 60));
@@ -94,7 +102,22 @@ var LightGrid = (function(){
 		if (s < 10) {
 		  s = "0" + s;
 		}
-		$("#timer span.time").html( m + ":" + s );
+
+		return m + ":" + s ;
+	}
+
+	function setMessage() {
+		var msg = "";
+		if (window.localStorage.length > 0) {
+			if (window.localStorage[difficulty]) {
+				msg = "Best time for "+ difficulty +" is "+ window.localStorage[difficulty];
+			} else {
+				msg = "You haven't beat the "+ difficulty +" grid yet!";
+			}
+		} else {
+			msg = "Try to solve it as fast as you can!"
+		}
+		$("#timer span.best-time").html( msg );
 	}
 
 	function winCondition() {
@@ -105,18 +128,25 @@ var LightGrid = (function(){
 		});
 
 		window.clearInterval(timer);
+
+		saveScore();
 		console.log("winCondition", "Complete!")
+	}
+
+	function saveScore() {
+		window.localStorage.setItem(difficulty, getElapsedTime());
 	}
 
 	// Public
 	return {
 		// Variables
-		modes: ["easy","normal","hard"],
+		difficulties: difficulties,
+		difficulty: difficulty,
 
 		// Methods
 		setMode: function(diff) {
 			difficulty = diff;
-			switch (difficulty) {
+			switch (diff) {
 				case 'easy':
 					rows = columns = 4;
 					scrambleAmount = 10;
@@ -135,6 +165,7 @@ var LightGrid = (function(){
 			lights = [];
 			buildLights();
 			scrambleLights();
+			setMessage();
 			startTimer();
 		},
 
@@ -146,5 +177,5 @@ var LightGrid = (function(){
 })();// () Triggers function to return public methods
 
 window.onload = function () {
-	LightGrid.setMode(LightGrid.modes[0]);
+	LightGrid.setMode(LightGrid.difficulties[0]);
 }
