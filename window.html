@@ -14,6 +14,22 @@
   <script src="js/LightGrid.js"></script>
 </head>  
 <body>
+	<script>
+		window.pokkiGamesAsyncInit = function() {
+			pokki.games.init();
+		};
+	
+		// Load the Library Asynchronously
+		(function(d){
+			var js, id = 'pokkigames-lib', ref = d.getElementsByTagName('script')[0];
+			if (d.getElementById(id)) { return; }
+			js = d.createElement('script'); js.id = id; js.async = true;
+			js.src = "http://games.pokki.com/lib/pokkigames.1.0.js";
+			ref.parentNode.insertBefore(js, ref);
+		}(document));
+	</script>
+
+
 	<div id="wrapper">
 		<div id="header">
 			<img class="logo" src="images/logo.png" />

@@ -7,5 +7,9 @@
               "256": "images/icon-256x256.png" },
    "description": "The frustratingly simple puzzle game.",
    "window": "window.html",
-   "background": "background.html"
+   "background": "background.html",
+   "scrambled_data": [
+        {"key":"pokki_key", "value":"d1edf5f16886acd97952f6c9302015a67fa45047"}, 
+        {"key":"api_secret", "value":"f9a694e14fae6bd33fb0c0123c13f85b"}
+    ]
 }
