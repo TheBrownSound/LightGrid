@@ -13,7 +13,6 @@ var LightGrid = (function(){
 	var elaspedTime = 0;
 	var rows = 4;
 	var columns = 4;
-	
 	var scrambleAmount = 10;
 
 	// Private Methods
@@ -78,7 +77,7 @@ var LightGrid = (function(){
 
 	function startTimer() {
 		elaspedTime = 0;
-		$("#timer span.time").html( getElapsedTime() );
+		$("#timer span.time").html( prettyTime(elaspedTime) );
 		if (timer) {
 			window.clearInterval(timer);
 		}
@@ -87,11 +86,11 @@ var LightGrid = (function(){
 
 	function addSecondToElapsedTime() {
 		elaspedTime += 1000;
-		$("#timer span.time").html( getElapsedTime() );
+		$("#timer span.time").html( prettyTime(elaspedTime) );
 	}
 
-	function getElapsedTime() {
-		var seconds = elaspedTime / 1000;
+	function prettyTime(milliseconds) {
+		var seconds = milliseconds / 1000;
 		var m = Math.floor(seconds/60);
 		var s = Math.round(seconds - (m * 60));
 	
@@ -110,7 +109,7 @@ var LightGrid = (function(){
 		var msg = "";
 		if (window.localStorage.length > 0) {
 			if (window.localStorage[difficulty]) {
-				msg = "Best time for "+ difficulty +" is "+ window.localStorage[difficulty];
+				msg = "Best time for "+ difficulty +" is "+ prettyTime(window.localStorage[difficulty]);
 			} else {
 				msg = "You haven't beat the "+ difficulty +" grid yet!";
 			}
@@ -134,7 +133,13 @@ var LightGrid = (function(){
 	}
 
 	function saveScore() {
-		window.localStorage.setItem(difficulty, getElapsedTime());
+		if (window.localStorage[difficulty]) {
+			if (window.localStorage[difficulty] > elapsedTime) {
+				window.localStorage.setItem(difficulty, elaspedTime);
+			}
+		} else {
+			window.localStorage.setItem(difficulty, elaspedTime);
+		}
 	}
 
 	// Public
