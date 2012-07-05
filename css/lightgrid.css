@@ -86,7 +86,7 @@ a {
 	display: inline-block;
 }
 
-#lights a.light {
+#lights a.light, #lights.complete a.light:hover {
 	background-image: url("../images/bulb_button.png");
 	-webkit-animation: on 1s;
 	background-color: #e7ebb4;
@@ -112,7 +112,6 @@ a {
 }
 
 #lights.complete a.light:hover {
-	background-image: none;
 	cursor: default;
 }
 
