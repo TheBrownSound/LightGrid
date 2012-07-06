@@ -37,7 +37,7 @@ a {
 
 #wrapper {
 	background: url("../images/bulbs.png") top center repeat-x;
-	margin-bottom: 80px;
+	padding-bottom: 80px;
 }
 
 #header {
