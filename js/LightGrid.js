@@ -136,12 +136,18 @@ var LightGrid = (function(){
 	}
 
 	function saveScore() {
+		// Local Storage Best Times
 		if (window.localStorage[difficulty]) {
 			if (window.localStorage[difficulty] > elaspedTime) {
 				window.localStorage.setItem(difficulty, elaspedTime);
 			}
 		} else {
 			window.localStorage.setItem(difficulty, elaspedTime);
+		}
+		// Pokki Leaderboards scores
+		//Don't score if the leaderboards are missing or playing on the easiest setting.
+		if (pokki.games && difficulty != difficulties[0]) {
+			// TODO Put pokki leaderboards score here
 		}
 	}
 
