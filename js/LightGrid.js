@@ -84,12 +84,19 @@ var LightGrid = (function(){
 
 	function startTimer() {
 		timerRunning = true;
-		elaspedTime = 0;
-		$("#timer span.time").html( prettyTime(elaspedTime) );
+		timer = window.setInterval(addSecondToElapsedTime, 1000);
+	}
+
+	function stopTimer() {
+		timerRunning = false;
 		if (timer) {
 			window.clearInterval(timer);
 		}
-		timer = window.setInterval(addSecondToElapsedTime, 1000);
+	}
+
+	function resetTimer() {
+		elaspedTime = 0;
+		$("#timer span.time").html( prettyTime(elaspedTime) );
 	}
 
 	function addSecondToElapsedTime() {
@@ -134,9 +141,7 @@ var LightGrid = (function(){
     		$(this).unbind("click");
 		});
 
-		timerRunning = false;
-		window.clearInterval(timer);
-
+		stopTimer();
 		saveScore();
 		console.log("winCondition", "Complete!")
 	}
@@ -186,6 +191,8 @@ var LightGrid = (function(){
 			$("#wrapper").addClass(difficulty);
 			lights = [];
 			buildLights();
+			stopTimer();
+			resetTimer();
 			scrambleLights();
 			setMessage();
 		},
