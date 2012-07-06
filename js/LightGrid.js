@@ -10,6 +10,7 @@ var LightGrid = (function(){
 	// Private Variables
 	var lights = [];
 	var timer;
+	var timerRunning = false;
 	var elaspedTime = 0;
 	var rows = 4;
 	var columns = 4;
@@ -57,6 +58,9 @@ var LightGrid = (function(){
 	}
 
 	function clickLight(index) {
+		if (!timerRunning) {
+			startTimer();
+		}
 		toggleLight(index);
 		if ($("#lights a.off").length < 1) {
 			winCondition();
@@ -79,6 +83,7 @@ var LightGrid = (function(){
 	}
 
 	function startTimer() {
+		timerRunning = true;
 		elaspedTime = 0;
 		$("#timer span.time").html( prettyTime(elaspedTime) );
 		if (timer) {
@@ -129,6 +134,7 @@ var LightGrid = (function(){
     		$(this).unbind("click");
 		});
 
+		timerRunning = false;
 		window.clearInterval(timer);
 
 		saveScore();
@@ -182,7 +188,6 @@ var LightGrid = (function(){
 			buildLights();
 			scrambleLights();
 			setMessage();
-			startTimer();
 		},
 
 		reset: function() {

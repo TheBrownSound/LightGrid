@@ -125,10 +125,13 @@ a {
 	display: block;
 }
 
-#tutorial b {
-	display: block;
+#tutorial {
 	position: relative;
 	z-index: 2;
+}
+
+#tutorial b {
+	display: block;
 }
 
 #footer {
