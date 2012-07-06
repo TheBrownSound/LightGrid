@@ -120,6 +120,18 @@ var LightGrid = (function(){
 		return m + ":" + s ;
 	}
 
+	function winCondition() {
+		$("#lights").addClass("complete");
+
+		$('#lights .light').each(function(index) {
+			$(this).unbind("click");
+		});
+
+		stopTimer();
+		saveScore();
+		setMessage();
+	}
+
 	function setMessage() {
 		var msg = "";
 		if (window.localStorage.length > 0) {
@@ -132,18 +144,6 @@ var LightGrid = (function(){
 			msg = "Try to solve it as fast as you can!"
 		}
 		$("#timer span.best-time").html( msg );
-	}
-
-	function winCondition() {
-		$("#lights").addClass("complete");
-
-		$('#lights .light').each(function(index) {
-    		$(this).unbind("click");
-		});
-
-		stopTimer();
-		saveScore();
-		console.log("winCondition", "Complete!")
 	}
 
 	function saveScore() {
