@@ -4,7 +4,7 @@
 var LightGrid = (function(){
 	
 	//Public Variables
-	var difficulties = ["easy","normal","hard"];
+	var difficulties = ["Easy","Normal","Hard"];
 	var difficulty = difficulties[0];
 
 	// Private Variables
@@ -159,6 +159,11 @@ var LightGrid = (function(){
 		//Don't score if the leaderboards are missing or playing on the easiest setting.
 		if (pokki.games && difficulty != difficulties[0]) {
 			// TODO Put pokki leaderboards score here
+			var lb = pokki.games.setLeaderBoard(difficulty, {
+				order: 'ASC',
+				title: difficulty
+			});
+			lb.setHighScore(elaspedTime);
 		}
 	}
 
@@ -173,15 +178,15 @@ var LightGrid = (function(){
 			$("#wrapper").removeClass(difficulty);
 			difficulty = diff;
 			switch (diff) {
-				case 'easy':
+				case 'Easy':
 					rows = columns = 4;
 					scrambleAmount = 10;
 				break;
-				case 'normal':
+				case 'Normal':
 					rows = columns = 5;
 					scrambleAmount = 60;
 				break;
-				case 'hard':
+				case 'Hard':
 					rows = columns = 6;
 					scrambleAmount = 100;
 				break;

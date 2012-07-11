@@ -15,9 +15,7 @@
 <body>
 	<script>
 		window.pokkiGamesAsyncInit = function() {
-			pokki.games.init({
-				order: 'ASC'
-			});
+			pokki.games.init();
 		};
 	
 		// Load the Library Asynchronously
@@ -47,9 +45,9 @@
 
 		<div id="footer">
 			<ul id="difficulty">
-				<li><a class="button easy" onclick="LightGrid.setMode('easy')">Easy</a></li>
-				<li><a class="button normal" onclick="LightGrid.setMode('normal')">Normal</a></li>
-				<li><a class="button hard" onclick="LightGrid.setMode('hard')">Hard</a></li>
+				<li><a class="button easy" onclick="LightGrid.setMode(LightGrid.difficulties[0])">Easy</a></li>
+				<li><a class="button normal" onclick="LightGrid.setMode(LightGrid.difficulties[1])">Normal</a></li>
+				<li><a class="button hard" onclick="LightGrid.setMode(LightGrid.difficulties[2])">Hard</a></li>
 			</ul>
 			<div id="timer">
 				<span class="time">00:00</span>
