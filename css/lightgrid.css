@@ -13,6 +13,7 @@ html {
 body {
 	background: url("../images/background.png") top left no-repeat;
 	min-width: 600px;
+	min-height: 600px;
 	font-family: 'Chelsea Market', cursive;
 }
 

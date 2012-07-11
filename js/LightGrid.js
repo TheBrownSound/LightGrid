@@ -158,8 +158,7 @@ var LightGrid = (function(){
 		// Pokki Leaderboards scores
 		//Don't score if the leaderboards are missing or playing on the easiest setting.
 		if (pokki.games && difficulty != difficulties[0]) {
-			// TODO Put pokki leaderboards score here
-			var lb = pokki.games.setLeaderBoard(difficulty, {
+			var lb = pokki.games.setLeaderboard(difficulty, {
 				order: 'ASC',
 				title: difficulty
 			});
