@@ -201,6 +201,13 @@ var LightGrid = (function(){
 			setMessage();
 		},
 
+		showCurrentLeaderboard: function() {
+			if (pokki.games && difficulty != difficulties[0]) {
+				var lb = pokki.games.setLeaderboard(difficulty);
+				lb.show();
+			}
+		},
+
 		reset: function() {
 			LightGrid.setMode(difficulty);
 		}

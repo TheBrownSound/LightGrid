@@ -37,6 +37,7 @@
 	<div id="wrapper">
 		<div id="header">
 			<img class="logo" src="images/logo.png" />
+			<a class="button leaderboard" onclick="LightGrid.showCurrentLeaderboard()"><img src="images/leaderboard_icon.png" /></a>
 		</div>
 		
 		<div id="lights">
@@ -50,9 +51,9 @@
 
 		<div id="footer">
 			<ul id="difficulty">
-				<li><a class="button easy" onclick="LightGrid.setMode(LightGrid.difficulties[0])">Easy</a></li>
-				<li><a class="button normal" onclick="LightGrid.setMode(LightGrid.difficulties[1])">Normal</a></li>
-				<li><a class="button hard" onclick="LightGrid.setMode(LightGrid.difficulties[2])">Hard</a></li>
+				<li><a class="button Easy" onclick="LightGrid.setMode(LightGrid.difficulties[0])">Easy</a></li>
+				<li><a class="button Normal" onclick="LightGrid.setMode(LightGrid.difficulties[1])">Normal</a></li>
+				<li><a class="button Hard" onclick="LightGrid.setMode(LightGrid.difficulties[2])">Hard</a></li>
 			</ul>
 			<div id="timer">
 				<span class="time">00:00</span>
@@ -60,5 +61,5 @@
 			</div>
 		</div>
 	</div>
-</body>  
+</body>
 </html>
