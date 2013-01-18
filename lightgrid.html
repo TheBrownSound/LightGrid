@@ -40,26 +40,6 @@
 		</div>
 	</div>
 
-	<script>
-		window.pokkiGamesAsyncInit = function() {
-			pokki.games.init();
-		};
-	
-		// Load the Library Asynchronously
-		(function(d){
-			var js, id = 'pokkigames-lib', ref = d.getElementsByTagName('script')[0];
-			if (d.getElementById(id)) { return; }
-			js = d.createElement('script'); js.id = id; js.async = true;
-			js.src = "js/pokkigames.1.0.js";
-			ref.parentNode.insertBefore(js, ref);
-		}(document));
-
-		pokki.allowResize(true, true, {
-  			minWidth: 600,
-  			minHeight: 600
-		});
-	</script>
-
 	<script src="js/jquery-1.7.2.min.js"></script>
 	<script src="js/LightGrid.js"></script>
 </body>
