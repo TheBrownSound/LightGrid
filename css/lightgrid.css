@@ -38,6 +38,11 @@ a {
 	font-weight: 700;
 }
 
+.button:hover {
+	background-color: #2a9c9b;
+	color: #e7ebb4;
+}
+
 #wrapper {
 	background: url("../images/bulbs.png") top center repeat-x;
 	padding-bottom: 80px;
@@ -69,37 +74,51 @@ a {
 	border: 2px solid #000;
 	clear: both;
 	margin: 0px auto;
-	padding: 5px;
+	padding: 20px;
 	position: relative;
+	min-height: 250px;
 	width: 280px;
 	-webkit-box-shadow: 0px 0px 300px 100px rgba(51, 142, 139, .5);
 }
 
-#lights a.restart {
-	display: none;
-	background-image: url("../images/light_toggle.png");
-	background-repeat: no-repeat;
-	background-position: 10px 50%;
-	color: #2a9c9b;
+#lights #win {
+	background: #3a3a3a url("../images/winscreen.png") top center no-repeat;
+	border: 2px solid #000;
 	border-radius: 10px;
-	background-color: rgba(0,0,0,.7);
+	color: #2a9c9b;
+	display: none;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	line-height: 50px;
-	margin-top: -25px;
+	margin-top: -127px;
 	margin-left: -120px;
-	padding-left: 40px;
+	height: 250px;
+	text-align: center;
+	width: 236px;
+}
+
+#lights #win a.button {
+	display: block;
+	background-image: url("../images/light_toggle.png");
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+	border-radius: 10px;
+	line-height: 50px;
+	padding-left: 50px;
 	height: 50px;
 	text-align: center;
-	width: 200px;
+	width: 140px;
+	margin-top: 180px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #lights.complete {
 	-webkit-box-shadow: 0px 0px 300px 100px rgba(51, 142, 139, 1);
 }
 
-#lights.complete a.restart{
+#lights.complete #win {
 	-webkit-animation: show 1s;
 	display: inline-block;
 }
@@ -127,6 +146,10 @@ a {
 	-webkit-animation: off 1s;
 	background-color: #333;
 	-webkit-box-shadow: none;
+}
+
+#lights a.light.fade {
+	visibility: hidden;
 }
 
 #lights.complete a.light:hover {

@@ -19,7 +19,9 @@
 		</div>
 		
 		<div id="lights">
-			<a onclick="LightGrid.reset();" class="restart">Play Again?</a>
+			<div id="win">
+				<a onclick="LightGrid.reset();" id="restart" class="button">Play Again?</a>
+			</div>
 		</div>
 
 		<div id="tutorial">
@@ -56,7 +58,7 @@
 
 		pokki.allowResize(true, true, {
   			minWidth: 600,
-  			minHeight: 620
+  			minHeight: 640
 		});
 	</script>
 

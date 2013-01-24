@@ -125,6 +125,7 @@ var LightGrid = (function(){
 
 		$('#lights .light').each(function(index) {
 			$(this).unbind("click");
+			$(this).addClass('fade');
 		});
 
 		stopTimer();
