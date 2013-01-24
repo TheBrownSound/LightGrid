@@ -125,6 +125,7 @@ var LightGrid = (function(){
 
 		$('#lights .light').each(function(index) {
 			$(this).unbind("click");
+			$(this).addClass('fade');
 		});
 
 		stopTimer();
@@ -213,7 +214,7 @@ var LightGrid = (function(){
 		}
 	}
 
-})();// () Triggers function to return public methods
+})();
 
 window.onload = function () {
 	LightGrid.setMode(LightGrid.difficulties[0]);
