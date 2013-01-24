@@ -213,7 +213,7 @@ var LightGrid = (function(){
 		}
 	}
 
-})();// () Triggers function to return public methods
+})();
 
 window.onload = function () {
 	LightGrid.setMode(LightGrid.difficulties[0]);
