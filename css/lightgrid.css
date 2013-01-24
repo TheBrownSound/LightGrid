@@ -3,6 +3,8 @@ html, body {
 	padding: 0px;
 	height: 100%;
 	width: 100%;
+	min-width: 600px;
+	min-height: 640px;
 }
 
 html {
