@@ -156,15 +156,6 @@ var LightGrid = (function(){
 		} else {
 			window.localStorage.setItem(difficulty, elaspedTime);
 		}
-		// Pokki Leaderboards scores
-		//Don't score if the leaderboards are missing or playing on the easiest setting.
-		if (pokki.games && difficulty != difficulties[0]) {
-			var lb = pokki.games.setLeaderboard(difficulty, {
-				order: 'ASC',
-				title: difficulty
-			});
-			lb.setHighScore(elaspedTime);
-		}
 	}
 
 	// Public
@@ -200,13 +191,6 @@ var LightGrid = (function(){
 			resetTimer();
 			scrambleLights();
 			setMessage();
-		},
-
-		showCurrentLeaderboard: function() {
-			if (pokki.games && difficulty != difficulties[0]) {
-				var lb = pokki.games.setLeaderboard(difficulty);
-				lb.show();
-			}
 		},
 
 		reset: function() {
